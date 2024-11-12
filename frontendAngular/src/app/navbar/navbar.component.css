@@ -1,0 +1,22 @@
+.navbar{
+    background-color: #1E293B;
+    color: #73C0E7;
+}  
+
+.nav-link{
+    color: #73C0E7;
+    text-decoration: none;
+}
+
+.nav-link:hover{
+    color: #5288a2;
+    cursor: pointer;
+}
+
+.navbar-toggler{
+    background-color: #73C0E7;
+}
+
+.navbar-toggler:hover{
+    background-color: #5288a2;
+}

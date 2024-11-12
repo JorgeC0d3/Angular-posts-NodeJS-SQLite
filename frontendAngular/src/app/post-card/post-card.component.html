@@ -1,0 +1,8 @@
+<div class="div-post position-relative">
+    @if(post.username == username){
+    <button type="button" class="btn btn-close position-absolute m-2" (click)="onDeletePost(post.id)"></button>
+    }
+    <img alt="image" [src]="url +'/uploads/' + post.image" class="w-100">
+    <p class="p-3">{{ post.content }}</p>
+    <p class="p-3">Posted by: {{ post.username }}</p>
+</div>

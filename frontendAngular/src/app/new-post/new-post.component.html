@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center align-items-center mt-5">
+    <div class="card" id="card-new-post">
+        <div class="card-body">
+            <h2 class="text-center mb-4">New Post</h2>
+            <form (ngSubmit)="savePost()">
+                <div class="form-group mb-3">
+                    <label for="email">Image</label>
+                    <input type="file" class="form-control" id="file" (change)="onFileSelected($event)" name="file" accept=".png, .jpg" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="password">Content</label>
+                    <textarea class="form-control" id="content" [(ngModel)]="post.content" name="content" rows="5" required></textarea>
+                </div>
+                <!-- Botón de login deshabilitado y con texto dinámico -->
+                <button type="submit" class="btn btn-primary btn-block w-100" [disabled]="isLoading">
+                    {{ isLoading ? 'Processing...' : 'Publicate' }}
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- Toast de éxito -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="successToast" class="toast align-items-center text-white bg-success border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Post saved successfully!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast de error -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="errorToast" class="toast align-items-center text-white bg-danger border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Failed to save post!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast de aviso -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="warningToast" class="toast align-items-center text-white bg-warning border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Is there a field to complete?
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+<div class="d-flex m-0 vh-100 justify-content-center align-items-center">
+    <div class="card" id="card-signup">
+        <div class="card-body">
+            <h2 class="text-center mb-4">Register</h2>
+            <form (ngSubmit)="signupUser()">
+                <div class="form-group mb-3">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" [(ngModel)]="user.username" name="username" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" [(ngModel)]="user.email" name="email" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" [(ngModel)]="user.password" name="password" required>
+                </div>
+                <!-- Botón de login deshabilitado y con texto dinámico -->
+                <button type="submit" class="btn btn-primary btn-block w-100" [disabled]="isLoading">
+                    {{ isLoading ? 'Processing...' : 'Signup' }}
+                </button>
+            </form>
+            <div class="text-center mt-3">
+                <a routerLink="/" class="link">Login</a>
+            </div>
+        </div>
+    </div>
+    <!-- Toast de éxito -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="successToast" class="toast align-items-center text-white bg-success border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    User register correctly!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast de error -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="errorToast" class="toast align-items-center text-white bg-danger border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    An error has ocurred!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast de aviso -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="warningToast" class="toast align-items-center text-white bg-warning border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Is there a field to complete?
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+</div>
